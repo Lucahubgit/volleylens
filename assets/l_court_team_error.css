@@ -22,14 +22,64 @@
 }
 
 
-
-
-.st-key-econfirm button{
-    background-color: #bb4b0f;
+/* CONFIRM BUTTON*/
+.st-key-confirm button{
+    background-color: #FFA100;
     margin-top: 10% !important;
 }
 
+.st-key-confirm button p{
+    color: #000000;
+    font-size: 16px;
+}
 
+.st-key-confirm button:hover{
+    background-color: #d68800;
+}
+
+.st-key-confirm button:hover p{
+    color: #000000;
+}
+
+.st-key-confirm button:focus{
+    background-color: #d68800;
+}
+
+.st-key-confirm button:focus p{
+    color: #000000;
+}
+
+/* SAVE BUTTON*/
+.st-key-save button{
+    background-color: #FFA100;
+    margin-top: 10% !important;
+}
+
+.st-key-save button p{
+    color: #000000;
+    font-size: 16px;
+}
+
+.st-key-save button:hover{
+    background-color: #d68800;
+}
+
+.st-key-save button:hover p{
+    color: #000000;
+}
+
+.st-key-save button:focus{
+    background-color: #d68800;
+}
+
+.st-key-save button:focus p{
+    color: #000000;
+}
+
+/* BACK BUTTON*/
+.st-key-back button{
+    margin-top: 10% !important;
+}
 
 
 .st-key-ebutt1 button{

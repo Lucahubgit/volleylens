@@ -77,29 +77,32 @@ if st.session_state.step == 0:
     with col5:
         eb23 = st.button("out", key="ebutt23", on_click=click_def,args=['out_right'], use_container_width=True)
 
-    confirm = st.button("Confirm point", key="econfirm", on_click=click_step, args=[1])
-
-    st.subheader("Go to the initial page")
-
-    if st.button("Back"):
-
-        st.session_state.point_lost = st.session_state.point_lost - 1
-
-        st.switch_page("pages/score.py")
-
+    col6,col7,col8=st.columns(3, vertical_alignment="center")
+    with col6:
+        if st.button("Back",key="back",use_container_width=True):
+            st.session_state.point_lost = st.session_state.point_lost - 1
+            st.switch_page("pages/score.py")
+    with col8:
+        confirm = st.button("Confirm point", key="confirm", on_click=click_step, args=[1], use_container_width=True)
 
 
 if st.session_state.step == 1:
 
     if st.session_state.point_att != '0' and st.session_state.point_def !='0':
         st.info(f"You selected: error in {st.session_state.point_def} from {st.session_state.point_att} ({st.session_state.player_selected}).\n\nDo you want to save the action?")
-        back = st.button("Back", key="eback", on_click=click_step, args=[0])
-        save = st.button("Save", key="esave", on_click=click_step, args = [2])
-
-    
+        
+        col9,col10,col11=st.columns(3, vertical_alignment="center")
+        with col9:
+            back = st.button("Back", key="back", on_click=click_step, args=[0], use_container_width=True)
+        with col11:
+            save = st.button("Save", key="save", on_click=click_step, args = [2], use_container_width=True)
+        
     elif (st.session_state.point_att== '0') or (st.session_state.point_def== '0'):
         st.warning("Please go back. You are missing the point selection!")
-        back = st.button("Back", key="eback", on_click=click_step, args=[0])
+        
+        col12,col13,col14=st.columns(3, vertical_alignment="center")
+        with col12:
+            back = st.button("Back", key="back", on_click=click_step, args=[0], use_container_width=True)
         
         
 if st.session_state.step == 2:

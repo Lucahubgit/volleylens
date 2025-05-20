@@ -80,35 +80,43 @@ if st.session_state.step == 0:
         ob19 = st.button("2", key=f"obutt19", on_click=click_def,args=['def_2'], use_container_width=True)
         ob20 = st.button("8", key="obutt20", on_click=click_def,args=['def_8'], use_container_width=True)
         ob21 = st.button("1", key="obutt21", on_click=click_def,args=['def_1'], use_container_width=True)
+    
 
+    col4,col5,col6=st.columns(3, vertical_alignment="center")
+    with col4:
+        if st.button("Back",key="back",use_container_width=True):
+            st.session_state.point_lost = st.session_state.point_lost - 1
+            st.switch_page("pages/score.py")
+    with col6:
+        confirm = st.button("Confirm point", key="confirm", on_click=click_step, args=[1], use_container_width=True)
 
-    confirm = st.button("Confirm point", key="oconfirm", on_click=click_step, args=[1])
-
-    st.subheader("Go to the initial page")
-
-    if st.button("Back"):
-
-        st.session_state.point_lost = st.session_state.point_lost - 1
-        
-        st.switch_page("pages/score.py")
 
 if st.session_state.step == 1:
 
     if st.session_state.point_block != '0':
         st.info(f"You selected: error in {st.session_state.point_block} ({st.session_state.player_selected}).\n\nDo you want to save the action?")
-        back = st.button("Back", key="oback", on_click=click_step, args=[0])
-        save = st.button("Save", key="osave", on_click=click_step, args = [2])
-
+        
+        col7,col8,col9=st.columns(3, vertical_alignment="center")
+        with col7:
+            back = st.button("Back", key="back", on_click=click_step, args=[0], use_container_width=True)
+        with col9:
+            save = st.button("Save", key="save", on_click=click_step, args = [2], use_container_width=True)
         
     elif st.session_state.point_att != '0' and st.session_state.point_def != '0':
         st.info(f"You selected: error in {st.session_state.point_def} from {st.session_state.point_att} ({st.session_state.player_selected}).\n\nDo you want to save the action?")
-        back = st.button("Back", key="oback", on_click=click_step, args=[0])
-        save = st.button("Save", key="osave", on_click=click_step, args = [2])
+        
+        col10,col11,col12=st.columns(3, vertical_alignment="center")
+        with col10:
+            back = st.button("Back", key="back", on_click=click_step, args=[0], use_container_width=True)
+        with col12:
+            save = st.button("Save", key="save", on_click=click_step, args = [2], use_container_width=True)
 
-    
     elif (st.session_state.point_att == '0' and st.session_state.point_def != '0' ) or (st.session_state.point_att != '0' and st.session_state.point_def == '0' ) or (st.session_state.point_att == '0' and st.session_state.point_def == '0' and st.session_state.point_block == '0'):
         st.warning("Please go back. You are missing the point selection!")
-        back = st.button("Back", key="oback", on_click=click_step, args=[0])
+
+        col13,col14,col15=st.columns(3, vertical_alignment="center")
+        with col13:
+            back = st.button("Back", key="back", on_click=click_step, args=[0], use_container_width=True)
         
         
 if st.session_state.step == 2:

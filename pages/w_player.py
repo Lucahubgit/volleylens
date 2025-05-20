@@ -82,9 +82,6 @@ with col8:
 
 
 
-
-
-
 col9,col10,col11,col12 = st.columns(4,vertical_alignment="center")
 
 with col9:
@@ -117,9 +114,6 @@ with col12:
 
 
 
-
-
-
 col13,col14,col15,col16 = st.columns(4,vertical_alignment="center")
 
 with col14:
@@ -147,7 +141,5 @@ st.write("\n\n")
 
 # Tasto score page
 if st.button("Back"):
-
     st.session_state.point_scored = st.session_state.point_scored - 1
-
     st.switch_page("pages/score.py")

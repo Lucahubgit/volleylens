@@ -10,7 +10,7 @@ def load_css(file_path):
     with open(file_path) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-css_path = pathlib.Path("court.css")
+css_path = pathlib.Path("assets/w_court.css")
 load_css(css_path)
 
 if 'step' not in st.session_state:
@@ -79,36 +79,41 @@ if st.session_state.step == 0:
         b20 = st.button("20", key="butt20", on_click=click_att,args=['att_1'], use_container_width=True)
         b21 = st.button("serve", key=f"butt21", on_click=click_att,args=['serve_1'], use_container_width=True)
 
-
-    confirm = st.button("Confirm point", key="confirm", on_click=click_step, args=[1])
-
-    st.subheader("Go to the initial page")
-
-    if st.button("Back"):
-
-        st.session_state.point_scored = st.session_state.point_scored - 1
-
-        st.switch_page("pages/score.py")
-    
+    col4,col5,col6=st.columns(3, vertical_alignment="center")
+    with col4:
+        if st.button("Back",key="back",use_container_width=True):
+            st.session_state.point_scored = st.session_state.point_scored - 1
+            st.switch_page("pages/score.py")
+    with col6:
+        confirm = st.button("Confirm point", key="confirm", on_click=click_step, args=[1], use_container_width=True)
 
 
 if st.session_state.step == 1:
 
     if st.session_state.point_block != '0':
         st.info(f"You selected: point on {st.session_state.point_block} ({st.session_state.player_selected}).\n\nDo you want to save the action?")
-        back = st.button("Back", key="back", on_click=click_step, args=[0])
-        save = st.button("Save", key="save", on_click=click_step, args = [2])
-
+        
+        col7,col8,col9=st.columns(3, vertical_alignment="center")
+        with col7:
+            back = st.button("Back", key="back", on_click=click_step, args=[0], use_container_width=True)
+        with col9:
+            save = st.button("Save", key="save", on_click=click_step, args = [2], use_container_width=True)
         
     elif st.session_state.point_att != '0' and st.session_state.point_def != '0':
         st.info(f"You selected: point from {st.session_state.point_att} to {st.session_state.point_def} ({st.session_state.player_selected}).\n\nDo you want to save the action?")
-        back = st.button("Back", key="back", on_click=click_step, args=[0])
-        save = st.button("Save", key="save", on_click=click_step, args = [2])
+        
+        col10,col11,col12=st.columns(3, vertical_alignment="center")
+        with col10:
+            back = st.button("Back", key="back", on_click=click_step, args=[0], use_container_width=True)
+        with col12:
+            save = st.button("Save", key="save", on_click=click_step, args = [2], use_container_width=True)
 
-    
     elif (st.session_state.point_att == '0' and st.session_state.point_def != '0' ) or (st.session_state.point_att != '0' and st.session_state.point_def == '0' ) or (st.session_state.point_att == '0' and st.session_state.point_def == '0' and st.session_state.point_block == '0'):
         st.warning("Please go back. You are missing the point selection!")
-        back = st.button("Back", key="back", on_click=click_step, args=[0])
+        
+        col13,col14,col15=st.columns(3, vertical_alignment="center")
+        with col13:
+            back = st.button("Back", key="back", on_click=click_step, args=[0], use_container_width=True)
         
 if st.session_state.step == 2:
 

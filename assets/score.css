@@ -154,3 +154,38 @@
 .st-key-save button:focus p{
     color: white;
 }
+
+
+
+
+
+
+
+
+
+.st-key-download button{
+    background-color: #0294e8;
+    border-radius: 10px;
+    border : #0294e8;
+}
+
+.st-key-download button p{
+    color: white;
+    font-size: 20px;
+}
+
+.st-key-download button:hover{
+    background-color: #047dc3;
+}
+
+.st-key-download button:hover p{
+    color: white;
+}
+
+.st-key-download button:focus{
+    background-color: #047dc3;
+}
+
+.st-key-download button:focus p{
+    color: white;
+}

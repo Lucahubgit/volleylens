@@ -1,6 +1,14 @@
 import streamlit as st
 import pandas as pd
 from openpyxl import Workbook
+import pathlib
+
+def load_css(file_path):
+    with open(file_path) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+css_path = pathlib.Path("assets/data.css")
+load_css(css_path)
 
 #ATTENZIONE: CAMBIARE NUMERO DI GIOCATORI DEL ROSTER
 # PAGINA INIZIALE, SCELTA DI DATA, OPPONENT E ROSTER
@@ -37,12 +45,11 @@ if st.session_state.step == 0:
         st.dataframe(st.session_state.roster)
         st.session_state.game_roster = st.multiselect("Select all the players for the match:", st.session_state.roster['Name'], placeholder="Choose a player...")
 
-    col1,col2 = st.columns(2)
-
+    col1,col2,col3 = st.columns(3,vertical_alignment="center")
     with col1:
-        home = st.button(":house:", on_click=click_step, args=[2])
-    with col2:
-        report = st.button("Report", on_click=click_step, args=[1])
+        home = st.button(":house:", on_click=click_step, args=[2], key="home", use_container_width=True)
+    with col3:
+        report = st.button("Report", on_click=click_step, args=[1], key="report", use_container_width=True)
 
 if st.session_state.step == 1:
     if len(st.session_state.game_roster) != 14 : #ATTENZIONE: CAMBIARE NUMERO DI GIOCATORI DEL ROSTER
@@ -52,12 +59,12 @@ if st.session_state.step == 1:
         st.write(f">Game date: {st.session_state.match_date}")
         st.write(f">Opponent team: {st.session_state.game_opp}")
         st.write(f">Game roster: {st.session_state.game_roster}")
-        col1,col2 = st.columns(2)
-
+        
+        col1,col2,col3 = st.columns(3,vertical_alignment="center")
         with col1:
-            back = st.button("Back", on_click=click_step, args=[0])
-        with col2:
-            save = st.button("Save", on_click=click_step, args=[3])
+            back = st.button("Back", on_click=click_step, args=[0], key="back", use_container_width=True)
+        with col3:
+            save = st.button("Save", on_click=click_step, args=[3], key="save", use_container_width=True)
 
 if st.session_state.step == 2:
     return_home()

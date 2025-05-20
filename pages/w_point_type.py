@@ -10,12 +10,11 @@ css_path = pathlib.Path("assets/w_point_type.css")
 load_css(css_path)
 
 st.subheader("Select the point cause")
-st.write("\n\n")
 
+st.write("\n\n")
 col1, col2 = st.columns([0.4,0.6], vertical_alignment="center")
 with col1:
     if st.button("Team point", key="team_point", use_container_width=True):
-
         st.switch_page("pages/w_player.py")
 
 with col2:
@@ -76,8 +75,7 @@ st.write("\n\n")
 st.write("\n\n")
 st.write("\n\n")
 
-
-
+# Tasto score page
 if st.button("Back", key="back"):
     st.session_state.point_scored = st.session_state.point_scored - 1
     st.switch_page("pages/score.py")

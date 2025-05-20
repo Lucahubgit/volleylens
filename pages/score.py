@@ -226,6 +226,8 @@ with col14:
                 label="Download the Excel file",
                 data=buffer,
                 file_name=file_name,
-                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                key="download",
+                use_container_width=True
             )
 
