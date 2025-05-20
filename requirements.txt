@@ -4,5 +4,4 @@ openpyxl
 matplotlib
 plotly
 altair
-glob
 numpy
