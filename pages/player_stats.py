@@ -1326,7 +1326,7 @@ immagine,dati = st.columns(2, vertical_alignment='center',border=False)
 
 with immagine:
 
-    image = Image.open(f"{st.session_state.player}.jpg")
+    image = Image.open(f"{st.session_state.player}.png")
     st.image(image,use_container_width=True)
 
 with dati:
