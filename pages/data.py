@@ -10,7 +10,6 @@ def load_css(file_path):
 css_path = pathlib.Path("assets/data.css")
 load_css(css_path)
 
-#ATTENZIONE: CAMBIARE NUMERO DI GIOCATORI DEL ROSTER
 # PAGINA INIZIALE, SCELTA DI DATA, OPPONENT E ROSTER
 
 if 'step' not in st.session_state:

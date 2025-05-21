@@ -85,9 +85,9 @@
 .st-key-butt1 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-top: 3px solid white ;
-    border-left: 3px solid white ;
-    height: 100px;
+    border-top: 3px solid black ;
+    border-left: 3px solid black ;
+    height: 80px;
 }
 
 .st-key-butt1 button p{
@@ -117,9 +117,9 @@
 .st-key-butt2 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-left: 3px solid white ;
+    border-left: 3px solid black ;
     border-bottom: 3px solid white ;
-    height: 100px;
+    height: 80px;
 }
 
 .st-key-butt2 button p{
@@ -147,10 +147,10 @@
 .st-key-butt3 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-left: 3px solid white ;
+    border-left: 3px solid black ;
     border-top: 3px solid white ;
     border-bottom: 5px solid #bb4b0f;
-    height: 100px;
+    height: 80px;
 }
 
 .st-key-butt3 button p{
@@ -178,9 +178,9 @@
 .st-key-butt4 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-left: 3px solid white ;
+    border-left: 3px solid black ;
     border-top: 5px solid #bb4b0f ;
-    height: 50px;
+    height: 40px;
 }
 
 .st-key-butt4 button p{
@@ -211,9 +211,9 @@
 .st-key-butt5 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-left: 3px solid white ;
+    border-left: 3px solid black ;
     border-bottom: 3px solid white ;
-    height: 50px;
+    height: 40px;
 }
 
 .st-key-butt5 button p{
@@ -244,10 +244,10 @@
 .st-key-butt6 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-left: 3px solid white ;
+    border-left: 3px solid black ;
     border-top: 3px solid white ;
-    border-bottom: 3px solid white ;
-    height: 200px;
+    border-bottom: 3px solid black ;
+    height: 160px;
 }
 
 .st-key-butt6 button p{
@@ -327,8 +327,8 @@
 .st-key-butt8 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-top: 3px solid white ;
-    height: 100px;
+    border-top: 3px solid black ;
+    height: 80px;
 }
 
 .st-key-butt8 button p{
@@ -359,7 +359,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border-bottom: 3px solid white ;
-    height: 100px;
+    height: 80px;
 }
 
 .st-key-butt9 button p{
@@ -389,7 +389,7 @@
     border-radius: 0%;
     border-top: 3px solid white ;
     border-bottom: 5px solid #bb4b0f;
-    height: 100px;
+    height: 80px;
 }
 
 .st-key-butt10 button p{
@@ -418,7 +418,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 5px solid #bb4b0f ;
-    height: 50px;
+    height: 40px;
 }
 
 .st-key-butt11 button p{
@@ -450,7 +450,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border-bottom: 3px solid white ;
-    height: 50px;
+    height: 40px;
 }
 
 .st-key-butt12 button p{
@@ -482,8 +482,8 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 3px solid white ;
-    border-bottom: 3px solid white ;
-    height: 200px;
+    border-bottom: 3px solid black ;
+    height: 160px;
 }
 
 .st-key-butt13 button p{
@@ -585,9 +585,9 @@
 .st-key-butt15 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-top: 3px solid white ;
-    border-right: 3px solid white ;
-    height: 100px;
+    border-top: 3px solid black ;
+    border-right: 3px solid black ;
+    height: 80px;
 }
 
 .st-key-butt15 button p{
@@ -617,9 +617,9 @@
 .st-key-butt16 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-right: 3px solid white ;
+    border-right: 3px solid black ;
     border-bottom: 3px solid white ;
-    height: 100px;
+    height: 80px;
 }
 
 .st-key-butt16 button p{
@@ -647,10 +647,10 @@
 .st-key-butt17 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-right: 3px solid white ;
+    border-right: 3px solid black ;
     border-top: 3px solid white ;
     border-bottom: 5px solid #bb4b0f;
-    height: 100px;
+    height: 80px;
 }
 
 .st-key-butt17 button p{
@@ -678,9 +678,9 @@
 .st-key-butt18 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-right: 3px solid white ;
+    border-right: 3px solid black ;
     border-top: 5px solid #bb4b0f ;
-    height: 50px;
+    height: 40px;
 }
 
 .st-key-butt18 button p{
@@ -711,9 +711,9 @@
 .st-key-butt19 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-right: 3px solid white ;
+    border-right: 3px solid black ;
     border-bottom: 3px solid white ;
-    height: 50px;
+    height: 40px;
 }
 
 .st-key-butt19 button p{
@@ -744,10 +744,10 @@
 .st-key-butt20 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-right: 3px solid white ;
+    border-right: 3px solid black ;
     border-top: 3px solid white ;
-    border-bottom: 3px solid white ;
-    height: 200px;
+    border-bottom: 3px solid black ;
+    height: 160px;
 }
 
 .st-key-butt20 button p{

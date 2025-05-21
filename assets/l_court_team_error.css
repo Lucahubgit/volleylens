@@ -86,7 +86,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border:none;
-    height: 340px;
+    height: 280px;
 }
 
 .st-key-ebutt1 button p{
@@ -121,7 +121,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border:none;
-    height: 25px;
+    height: 20px;
 }
 
 .st-key-ebutt2 button p{
@@ -149,10 +149,10 @@
 .st-key-ebutt3 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-top: 3px solid white ;
+    border-top: 3px solid black ;
     border-bottom: 3px solid white ;
-    border-left: 3px solid white ;
-    height: 200px;
+    border-left: 3px solid black ;
+    height: 160px;
     cursor: not-allowed;
 }
 
@@ -183,8 +183,8 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 3px solid white ;
-    border-left: 3px solid white ;
-    height: 50px;
+    border-left: 3px solid black ;
+    height: 40px;
     cursor: not-allowed;
 }
 
@@ -216,8 +216,8 @@
     background-color: #007c80;
     border-radius: 0%;
     border-bottom: 3px solid  #bb4b0f;
-    border-left: 3px solid white ;
-    height: 50px;
+    border-left: 3px solid black ;
+    height: 40px;
 }
 
 .st-key-ebutt5 button p{
@@ -248,9 +248,9 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 3px solid  #bb4b0f;
-    border-left: 3px solid white ;
+    border-left: 3px solid black ;
     border-bottom: 3px solid white ;
-    height: 100px;
+    height: 80px;
 }
 
 .st-key-ebutt6 button p{
@@ -280,9 +280,9 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 3px solid  white;
-    border-left: 3px solid white ;
-    border-bottom: 3px solid white ;
-    height: 200px;
+    border-left: 3px solid black ;
+    border-bottom: 3px solid black ;
+    height: 160px;
 }
 
 .st-key-ebutt7 button p{
@@ -313,7 +313,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border:none;
-    height: 25px;
+    height: 20px;
 }
 
 .st-key-ebutt8 button p{
@@ -398,7 +398,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border:none;
-    height: 25px;
+    height: 20px;
 }
 
 .st-key-ebutt9 button p{
@@ -426,9 +426,9 @@
 .st-key-ebutt10 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-top: 3px solid white ;
+    border-top: 3px solid black ;
     border-bottom: 3px solid white ;
-    height: 200px;
+    height: 160px;
     cursor: not-allowed;
 }
 
@@ -459,7 +459,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 3px solid white ;
-    height: 50px;
+    height: 40px;
     cursor: not-allowed;
 }
 
@@ -491,7 +491,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border-bottom: 3px solid  #bb4b0f;
-    height: 50px;
+    height: 40px;
 }
 
 .st-key-ebutt12 button p{
@@ -523,7 +523,7 @@
     border-radius: 0%;
     border-top: 3px solid  #bb4b0f;
     border-bottom: 3px solid white ;
-    height: 100px;
+    height: 80px;
 }
 
 .st-key-ebutt13 button p{
@@ -553,8 +553,8 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 3px solid  white;
-    border-bottom: 3px solid white ;
-    height: 200px;
+    border-bottom: 3px solid black ;
+    height: 160px;
 }
 
 .st-key-ebutt14 button p{
@@ -585,7 +585,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border:none;
-    height: 25px;
+    height: 20px;
 }
 
 .st-key-ebutt15 button p{
@@ -652,7 +652,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border:none;
-    height: 25px;
+    height: 20px;
 }
 
 .st-key-ebutt16 button p{
@@ -680,10 +680,10 @@
 .st-key-ebutt17 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-top: 3px solid white ;
+    border-top: 3px solid black ;
     border-bottom: 3px solid white ;
-    border-right: 3px solid white ;
-    height: 200px;
+    border-right: 3px solid black ;
+    height: 160px;
     cursor: not-allowed;
 }
 
@@ -714,8 +714,8 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 3px solid white ;
-    border-right: 3px solid white ;
-    height: 50px;
+    border-right: 3px solid black ;
+    height: 40px;
     cursor: not-allowed;
 }
 
@@ -747,8 +747,8 @@
     background-color: #007c80;
     border-radius: 0%;
     border-bottom: 3px solid  #bb4b0f;
-    border-right: 3px solid white ;
-    height: 50px;
+    border-right: 3px solid black ;
+    height: 40px;
 }
 
 .st-key-ebutt19 button p{
@@ -780,8 +780,8 @@
     border-radius: 0%;
     border-top: 3px solid  #bb4b0f;
     border-bottom: 3px solid white ;
-    border-right: 3px solid white ;
-    height: 100px;
+    border-right: 3px solid black ;
+    height: 80px;
 }
 
 .st-key-ebutt20 button p{
@@ -811,9 +811,9 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 3px solid  white;
-    border-bottom: 3px solid white ;
-    border-right: 3px solid white ;
-    height: 200px;
+    border-bottom: 3px solid black ;
+    border-right: 3px solid black ;
+    height: 160px;
 }
 
 .st-key-ebutt21 button p{
@@ -844,7 +844,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border:none;
-    height: 25px;
+    height: 20px;
 }
 
 .st-key-ebutt22 button p{
@@ -930,7 +930,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border:none;
-    height: 340px;
+    height: 280px;
 }
 
 .st-key-ebutt23 button p{

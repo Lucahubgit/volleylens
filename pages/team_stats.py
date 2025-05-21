@@ -1601,7 +1601,7 @@ excels = pd.DataFrame({})
 for file_names in excel_files:
     excels[file_names] = pd.read_excel(file_names, sheet_name=None)
 
-back_button = st.button("Home")
+back_button = st.button(":house:")
 if back_button:
     st.switch_page("pages/start.py")
 
@@ -2035,6 +2035,17 @@ if st.session_state.fundamental_type == "overall":
         cols = ['General Stats', 'Value']
         player_stats_df = player_stats_df[cols]
 
+        st.write("\n\n")
+        st.write("\n\n")
+        st.write("\n\n")
+        st.write("\n\n")
+        st.write("\n\n")
+        st.write("\n\n")
+        st.write("\n\n")
+        st.write("\n\n")
+        st.write("\n\n")
+
+
         st.dataframe(player_stats_df.head(7), hide_index=True)
 
 ############################################################################################
@@ -2172,7 +2183,7 @@ if st.session_state.fundamental_type == "attack":
 
 
         min_frequenza_threshold = st.slider(
-            "Soglia minima frequenza transizione:",
+            "Minimum ball trajectory frequency:",
             min_value=0.0,
             max_value=frequenza_transizioni.max().max() if not frequenza_transizioni.empty else 0.1,
             value=0.01,  # Valore predefinito
@@ -2295,7 +2306,7 @@ if st.session_state.fundamental_type == "attack":
     
 
         min_frequenza_threshold = st.slider(
-            "Soglia minima frequenza transizione:",
+            "Minimum ball trajectory frequency:",
             min_value=0.0,
             max_value=frequenza_transizioni.max().max() if not frequenza_transizioni.empty else 0.1,
             value=0.01,  # Valore predefinito
@@ -2504,7 +2515,7 @@ if st.session_state.fundamental_type == "serve":
 
 
         min_frequenza_threshold = st.slider(
-            "Soglia minima frequenza transizione:",
+            "Minimum ball trajectory frequency:",
             min_value=0.0,
             max_value=frequenza_transizioni.max().max() if not frequenza_transizioni.empty else 0.1,
             value=0.01,  # Valore predefinito
@@ -2624,7 +2635,7 @@ if st.session_state.fundamental_type == "serve":
     
 
         min_frequenza_threshold = st.slider(
-            "Soglia minima frequenza transizione:",
+            "Minimum ball trajectory frequency:",
             min_value=0.0,
             max_value=frequenza_transizioni.max().max() if not frequenza_transizioni.empty else 0.1,
             value=0.01,  # Valore predefinito
@@ -3119,7 +3130,7 @@ if st.session_state.fundamental_type == "defense":
 
 
         min_frequenza_threshold = st.slider(
-            "Soglia minima frequenza transizione:",
+            "Minimum ball trajectory frequency:",
             min_value=0.0,
             max_value=frequenza_transizioni.max().max() if not frequenza_transizioni.empty else 0.1,
             value=0.01,  # Valore predefinito
@@ -3304,7 +3315,7 @@ if st.session_state.fundamental_type == "receive":
 
 
         min_frequenza_threshold = st.slider(
-            "Soglia minima frequenza transizione:",
+            "Minimum ball trajectory frequency:",
             min_value=0.0,
             max_value=frequenza_transizioni.max().max() if not frequenza_transizioni.empty else 0.1,
             value=0.01,  # Valore predefinito

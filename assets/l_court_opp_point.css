@@ -113,10 +113,10 @@
 .st-key-obutt2 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-top: 3px solid white ;
+    border-top: 3px solid black ;
     border-bottom: 3px solid white ;
-    border-left: 3px solid white ;
-    height: 200px;
+    border-left: 3px solid black ;
+    height: 160px;
 }
 
 .st-key-obutt2 button p{
@@ -147,9 +147,9 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 3px solid white ;
-    border-left: 3px solid white ;
+    border-left: 3px solid black ;
     border-bottom: 3px solid  #bb4b0f ;
-    height: 100px;
+    height: 80px;
 }
 
 .st-key-obutt3 button p{
@@ -178,9 +178,9 @@
 .st-key-obutt4 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-left: 3px solid white ;
+    border-left: 3px solid black ;
     border-top: 5px solid #bb4b0f ;
-    height: 50px;
+    height: 40px;
 }
 
 .st-key-obutt4 button p{
@@ -211,9 +211,9 @@
 .st-key-obutt5 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-left: 3px solid white ;
+    border-left: 3px solid black ;
     border-bottom: 3px solid white ;
-    height: 50px;
+    height: 40px;
 }
 
 .st-key-obutt5 button p{
@@ -243,9 +243,9 @@
 .st-key-obutt6 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-left: 3px solid white ;
+    border-left: 3px solid black ;
     border-top: 3px solid white ;
-    height: 100px;
+    height: 80px;
 }
 
 .st-key-obutt6 button p{
@@ -274,9 +274,9 @@
 .st-key-obutt7 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-left: 3px solid white ;
-    border-bottom: 3px solid white ;
-    height: 100px;
+    border-left: 3px solid black ;
+    border-bottom: 3px solid black ;
+    height: 80px;
 }
 
 .st-key-obutt7 button p{
@@ -381,9 +381,9 @@
 .st-key-obutt9 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-top: 3px solid white ;
+    border-top: 3px solid black ;
     border-bottom: 3px solid white ;
-    height: 200px;
+    height: 160px;
 }
 
 .st-key-obutt9 button p{
@@ -415,7 +415,7 @@
     border-radius: 0%;
     border-top: 3px solid white ;
     border-bottom: 3px solid  #bb4b0f ;
-    height: 100px;
+    height: 80px;
 }
 
 .st-key-obutt10 button p{
@@ -445,7 +445,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 5px solid #bb4b0f ;
-    height: 50px;
+    height: 40px;
 }
 
 .st-key-obutt11 button p{
@@ -477,7 +477,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border-bottom: 3px solid white ;
-    height: 50px;
+    height: 40px;
 }
 
 .st-key-obutt12 button p{
@@ -508,7 +508,7 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 3px solid white ;
-    height: 100px;
+    height: 80px;
 }
 
 .st-key-obutt13 button p{
@@ -537,8 +537,8 @@
 .st-key-obutt14 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-bottom: 3px solid white ;
-    height: 100px;
+    border-bottom: 3px solid black ;
+    height: 80px;
 }
 
 .st-key-obutt14 button p{
@@ -664,10 +664,10 @@
 .st-key-obutt16 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-top: 3px solid white ;
+    border-top: 3px solid black ;
     border-bottom: 3px solid white ;
-    border-right: 3px solid white ;
-    height: 200px;
+    border-right: 3px solid black ;
+    height: 160px;
 }
 
 .st-key-obutt16 button p{
@@ -699,8 +699,8 @@
     border-radius: 0%;
     border-top: 3px solid white ;
     border-bottom: 3px solid  #bb4b0f ;
-    border-right: 3px solid white ;
-    height: 100px;
+    border-right: 3px solid black ;
+    height: 80px;
 }
 
 .st-key-obutt17 button p{
@@ -730,8 +730,8 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 5px solid #bb4b0f ;
-    border-right: 3px solid white ;
-    height: 50px;
+    border-right: 3px solid black ;
+    height: 40px;
 }
 
 .st-key-obutt18 button p{
@@ -763,8 +763,8 @@
     background-color: #007c80;
     border-radius: 0%;
     border-bottom: 3px solid white ;
-    border-right: 3px solid white ;
-    height: 50px;
+    border-right: 3px solid black ;
+    height: 40px;
 }
 
 .st-key-obutt19 button p{
@@ -795,8 +795,8 @@
     background-color: #007c80;
     border-radius: 0%;
     border-top: 3px solid white ;
-    border-right: 3px solid white ;
-    height: 100px;
+    border-right: 3px solid black ;
+    height: 80px;
 }
 
 .st-key-obutt20 button p{
@@ -825,9 +825,9 @@
 .st-key-obutt21 button{
     background-color: #007c80;
     border-radius: 0%;
-    border-bottom: 3px solid white ;
-    border-right: 3px solid white ;
-    height: 100px;
+    border-bottom: 3px solid black ;
+    border-right: 3px solid black ;
+    height: 80px;
 }
 
 .st-key-obutt21 button p{
