@@ -639,24 +639,24 @@ def plot_volleyball_serve_frequency(attack_frequencies,defense_frequencies,trans
 def plot_volleyball_block_frequency(attack_frequencies):
     
     
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(5, 2))
     ax.axis('off')
     ax.set_aspect('equal')
-    plt.title(f'Team block distribution', fontsize=14)
+    plt.title(f'Team block distribution', fontsize=8)
 
     # Dimensioni del campo (proporzionali)
     court_width = 9
     court_length = 18
 
     # Disegna il campo
-    rect = plt.Rectangle((0,0), court_width, court_length, edgecolor='black',linewidth=3, facecolor='lightgrey', alpha=1)
+    rect = plt.Rectangle((0,0), court_width, court_length, edgecolor='black',linewidth=1.5, facecolor='lightgrey', alpha=1)
     ax.add_patch(rect)
-    plt.plot([court_width/3,court_width/3], [0, court_length], 'k--', linewidth=1) #3m verticale
-    plt.plot([2*court_width /3, 2*court_width /3], [0, court_length], 'k--', linewidth=1) #6m verticale
-    plt.plot([0,court_width], [court_length/3,court_length/3], 'k-', linewidth=2) # Linea dei 3m nostra
-    plt.plot([0,court_width], [2*court_length/3,2*court_length/3], 'k-', linewidth=2)  # Linea dei 3m avversaria
-    plt.plot([0,court_width], [court_length/2-1,court_length/2-1], 'k--', linewidth=1) 
-    plt.plot([0,court_width], [court_length/2,court_length/2], 'k-', linewidth=3)
+    plt.plot([court_width/3,court_width/3], [0, court_length], 'k--', linewidth=0.5) #3m verticale
+    plt.plot([2*court_width /3, 2*court_width /3], [0, court_length], 'k--', linewidth=0.5) #6m verticale
+    plt.plot([0,court_width], [court_length/3,court_length/3], 'k-', linewidth=1) # Linea dei 3m nostra
+    plt.plot([0,court_width], [2*court_length/3,2*court_length/3], 'k-', linewidth=1)  # Linea dei 3m avversaria
+    plt.plot([0,court_width], [court_length/2-1,court_length/2-1], 'k--', linewidth=0.5) 
+    plt.plot([0,court_width], [court_length/2,court_length/2], 'k-', linewidth=1.5)
 
     # Coordinate delle zone di attacco 
     zone_coords_att = { 
@@ -683,11 +683,11 @@ def plot_volleyball_block_frequency(attack_frequencies):
             color = cmap1(1-freq / max_freq1) if max_freq1 > 0 else 'lightgray'
             circle = plt.Rectangle((x, y),height=1,width=3, facecolor=color, edgecolor=None, alpha=1)
             ax.add_patch(circle)
-            ax.text(x+1.5, y+0.5, f'{freq:.2f}', ha='center', va='center', color='black', fontsize=8)
+            ax.text(x+1.5, y+0.5, f'{freq:.2f}', ha='center', va='center', color='black', fontsize=3)
     
-    cbar1 = plt.colorbar(sm1, ax=ax, orientation='vertical', pad=-0.5, location='right')
-    cbar1.set_label('Block zone [%]')
-    cbar1.ax.tick_params(labelsize=8)
+    cbar1 = plt.colorbar(sm1, ax=ax, orientation='vertical', pad=-0.4, location='right')
+    cbar1.set_label('Block zone [%]',fontsize=6)
+    cbar1.ax.tick_params(labelsize=3)
 
     st.pyplot(fig) 
 def plot_volleyball_defense_frequency(attack_frequencies,defense_frequencies,transizioni_frequenze,soglia_freq=0.01):
@@ -1991,8 +1991,32 @@ if st.session_state.fundamental_type == "overall":
                     player_stats_single_2['Block%'].append(0)
                 
             radar_chart = make_player_2_radar_chart("Team",st.session_state.player_2, team_stats, player_2_stats)
+            
+            st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="The resulting shape of this radar chart gives a visual snapshot of strengths and weaknesses of the team over these three parameters. On the background is the representation of the ideal performance.
+	                    - Att%: [team’s attack points/team’s attack points + team’s attack errors*100]
+                        - Serve%: [team's aces/team’s aces + team's serve errors*100]
+                        - Block%: [team’s block points/team’s block points + team’s block errors*100]">
+                    Overall performance radar plot
+                </span>
+                """,
+                unsafe_allow_html=True
+            )
+
             st.plotly_chart(radar_chart)
         
+            st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="The graph displays the relationship between two variables. It shows individual points plotted on a Cartesian coordinate system where each one shows the values of both variables for a specific observation. Variables can be freely chosen.">
+                    Comparative statistics scatter plot
+                </span>
+                """,
+                unsafe_allow_html=True
+            )
+
             x_var = st.selectbox("Select the x-variable:",team_stats_single,placeholder="Select the x-variable...")
             y_var = st.selectbox("Select the y-variable:",team_stats_single,placeholder="Select the y-variable...")
             
@@ -2013,7 +2037,32 @@ if st.session_state.fundamental_type == "overall":
 
         else:
             radar_chart = make_player_radar_chart("Team", team_stats)
+
+            st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="The resulting shape of this radar chart gives a visual snapshot of strengths and weaknesses of the team over these three parameters. On the background is the representation of the ideal performance.
+	                    - Att%: [team’s attack points/team’s attack points + team’s attack errors*100]
+                        - Serve%: [team's aces/team’s aces + team's serve errors*100]
+                        - Block%: [team’s block points/team’s block points + team’s block errors*100]">
+                    Overall performance radar plot
+                </span>
+                """,
+                unsafe_allow_html=True
+            ) 
+
             st.plotly_chart(radar_chart)
+
+            st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="The graph displays the relationship between two variables. It shows individual points plotted on a Cartesian coordinate system where each one shows the values of both variables for a specific observation. Variables can be freely chosen.">
+                    Comparative statistics scatter plot
+                </span>
+                """,
+                unsafe_allow_html=True
+            )
+
             x_var = st.selectbox("Select the x-variable:",team_stats_single,placeholder="Select the x-variable...")
             y_var = st.selectbox("Select the y-variable:",team_stats_single,placeholder="Select the y-variable...")
             
@@ -2035,6 +2084,9 @@ if st.session_state.fundamental_type == "overall":
         cols = ['General Stats', 'Value']
         player_stats_df = player_stats_df[cols]
 
+        st.write("\n\n")
+        st.write("\n\n")
+        st.write("\n\n")
         st.write("\n\n")
         st.write("\n\n")
         st.write("\n\n")
@@ -2164,6 +2216,17 @@ if st.session_state.fundamental_type == "attack":
     if st.session_state.info_type == "points":
 
         if st.session_state.game_choice != 'all games':
+
+            st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="This chart is a summary of the game. It represents in chronological order all the points gained or lost by each player that took part in the match. The points gained in the selected fundamental are highlighted with green bars, the lost ones with red bars, while the grey bars represent the other events of the game related to other fundamentals.">
+                    Match history
+                </span>
+                """,
+                unsafe_allow_html=True
+            )
+
             match_history_att_point(inst_df)
 
         #COURT CHART
@@ -2181,6 +2244,15 @@ if st.session_state.fundamental_type == "attack":
         frequenza_difese = att['end_att'].value_counts(normalize=True).sort_index().reindex(range(1, 11), fill_value=0)
         frequenza_transizioni = pd.crosstab(att['start_att'], att['end_att'], normalize=True)
 
+        st.markdown(
+        """
+        <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+        title="This chart is a discrete heatmap, showing the team’s attack distribution on the field. The arrows represent the ball’s trajectory, and their size shows the frequency of the trajectory. Their number can be adjusted using the slider. ">
+            Attack distribution chart
+        </span>
+        """,
+        unsafe_allow_html=True
+        )
 
         min_frequenza_threshold = st.slider(
             "Minimum ball trajectory frequency:",
@@ -2259,7 +2331,15 @@ if st.session_state.fundamental_type == "attack":
             'Mean points x set' : [att_p1, att_p2, att_p3, att_p4, att_p5],
             'Mean errors x set' : [att_e1, att_e2, att_e3, att_e4, att_e5],
         })
-
+        st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="Based on the initial choice between points or errors, this bar chart shows the mean number of points gained or the mean number of errors per set, specific to the fundamental previously selected, by the team.">
+                    Attack-per-set bar chart
+                </span>
+                """,
+                unsafe_allow_html=True
+        )
         bar_plot_points(bar_att)
 
         
@@ -2269,6 +2349,15 @@ if st.session_state.fundamental_type == "attack":
     elif st.session_state.info_type == "errors":
 
         if st.session_state.game_choice != 'all games':
+            st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="This chart is a summary of the game. It represents in chronological order all the points gained or lost by each player that took part in the match. The points gained in the selected fundamental are highlighted with green bars, the lost ones with red bars, while the grey bars represent the other events of the game related to other fundamentals.">
+                    Match history
+                </span>
+                """,
+                unsafe_allow_html=True
+            )
             match_history_att_error(inst_df)
 
         #COURT CHART
@@ -2304,6 +2393,15 @@ if st.session_state.fundamental_type == "attack":
         frequenza_difese = att['end_att'].value_counts(normalize=True).sort_index().reindex(range(1, 9), fill_value=0)
         frequenza_transizioni = pd.crosstab(att['start_att'], att['end_att'], normalize=True)
     
+        st.markdown(
+            """
+            <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+            title="This chart is a discrete heatmap, showing the team’s attack distribution on the field. The arrows represent the ball’s trajectory, and their size shows the frequency of the trajectory. Their number can be adjusted using the slider. ">
+                Attack distribution chart
+            </span>
+            """,
+            unsafe_allow_html=True
+        )
 
         min_frequenza_threshold = st.slider(
             "Minimum ball trajectory frequency:",
@@ -2382,7 +2480,15 @@ if st.session_state.fundamental_type == "attack":
             'Mean points x set' : [att_p1, att_p2, att_p3, att_p4, att_p5],
             'Mean errors x set' : [att_e1, att_e2, att_e3, att_e4, att_e5],
         })
-
+        st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="Based on the initial choice between points or errors, this bar chart shows the mean number of points gained or the mean number of errors per set, specific to the fundamental previously selected, by the team.">
+                    Attack-per-set bar chart
+                </span>
+                """,
+                unsafe_allow_html=True
+        )
         bar_plot_errors(bar_att)
 
 #######################################################################################
@@ -2497,6 +2603,15 @@ if st.session_state.fundamental_type == "serve":
     if st.session_state.info_type == "points":
 
         if st.session_state.game_choice != 'all games':
+            st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="This chart is a summary of the game. It represents in chronological order all the points gained or lost by each player that took part in the match. The points gained in the selected fundamental are highlighted with green bars, the lost ones with red bars, while the grey bars represent the other events of the game related to other fundamentals.">
+                    Match history
+                </span>
+                """,
+                unsafe_allow_html=True
+            )
             match_history_serve_point(inst_df)
 
         focus_serve = focus_serve[(focus_serve['score'] == 'S') & (focus_serve['point_type'] == 'team point')]
@@ -2513,6 +2628,25 @@ if st.session_state.fundamental_type == "serve":
         frequenza_ace = serve['end_serve'].value_counts(normalize=True).sort_index().reindex(range(1, 11), fill_value=0)
         frequenza_transizioni = pd.crosstab(serve['start_serve'], serve['end_serve'], normalize=True)
 
+        st.markdown(
+            """
+            <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+            title="This chart is a discrete heatmap, showing the team’s serve distribution on the field. The arrows represent the ball’s trajectory, and their size shows the frequency of the trajectory. Their number can be adjusted using the slider. ">
+                Serve distribution chart
+            </span>
+            """,
+            unsafe_allow_html=True
+        )
+
+        st.markdown(
+            """
+            <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+            title="This chart is a discrete heatmap, showing the team’s serve distribution on the field. The arrows represent the ball’s trajectory, and their size shows the frequency of the trajectory. Their number can be adjusted using the slider. ">
+                Serve distribution chart
+            </span>
+            """,
+            unsafe_allow_html=True
+        )
 
         min_frequenza_threshold = st.slider(
             "Minimum ball trajectory frequency:",
@@ -2591,7 +2725,15 @@ if st.session_state.fundamental_type == "serve":
             'Mean points x set' : [serve_p1, serve_p2, serve_p3, serve_p4, serve_p5],
             'Mean errors x set' : [serve_e1, serve_e2, serve_e3, serve_e4, serve_e5],
         })
-
+        st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="Based on the initial choice between points or errors, this bar chart shows the mean number of points gained or the mean number of errors per set, specific to the fundamental previously selected, by the team.">
+                    Serve-per-set bar chart
+                </span>
+                """,
+                unsafe_allow_html=True
+        )
         bar_plot_points(bar_serve)
 
 
@@ -2600,6 +2742,15 @@ if st.session_state.fundamental_type == "serve":
     elif st.session_state.info_type == "errors":
 
         if st.session_state.game_choice != 'all games':
+            st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="This chart is a summary of the game. It represents in chronological order all the points gained or lost by each player that took part in the match. The points gained in the selected fundamental are highlighted with green bars, the lost ones with red bars, while the grey bars represent the other events of the game related to other fundamentals.">
+                    Match history
+                </span>
+                """,
+                unsafe_allow_html=True
+            )   
             match_history_serve_error(inst_df)
 
 
@@ -2633,6 +2784,15 @@ if st.session_state.fundamental_type == "serve":
         frequenza_ace = serve['end_serve'].value_counts(normalize=True).sort_index().reindex(range(1, 9), fill_value=0)
         frequenza_transizioni = pd.crosstab(serve['start_serve'], serve['end_serve'], normalize=True)
     
+        st.markdown(
+            """
+            <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+            title="This chart is a discrete heatmap, showing the team’s serve distribution on the field. The arrows represent the ball’s trajectory, and their size shows the frequency of the trajectory. Their number can be adjusted using the slider. ">
+                Serve distribution chart
+            </span>
+            """,
+            unsafe_allow_html=True
+        )
 
         min_frequenza_threshold = st.slider(
             "Minimum ball trajectory frequency:",
@@ -2712,7 +2872,15 @@ if st.session_state.fundamental_type == "serve":
             'Mean points x set' : [serve_p1, serve_p2, serve_p3, serve_p4, serve_p5],
             'Mean errors x set' : [serve_e1, serve_e2, serve_e3, serve_e4, serve_e5],
         })
-
+        st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="Based on the initial choice between points or errors, this bar chart shows the mean number of points gained or the mean number of errors per set, specific to the fundamental previously selected, by the team.">
+                    Serve-per-set bar chart
+                </span>
+                """,
+                unsafe_allow_html=True
+        )
         bar_plot_errors(bar_serve)
 
 ######################################################################################
@@ -2826,6 +2994,15 @@ if st.session_state.fundamental_type == "block":
     if st.session_state.info_type == "points":
 
         if st.session_state.game_choice != 'all games':
+            st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="This chart is a summary of the game. It represents in chronological order all the points gained or lost by each player that took part in the match. The points gained in the selected fundamental are highlighted with green bars, the lost ones with red bars, while the grey bars represent the other events of the game related to other fundamentals.">
+                    Match history
+                </span>
+                """,
+                unsafe_allow_html=True
+            )
             match_history_block_point(inst_df)
 
 
@@ -2840,6 +3017,17 @@ if st.session_state.fundamental_type == "block":
         frequenza_blocchi = block['start_block'].value_counts(normalize=True).sort_index().reindex(range(1, 5), fill_value=0)
 
         # Esegui la funzione per visualizzare il grafico
+
+        st.markdown(
+            """
+            <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+            title="This chart is a discrete heatmap, showing the team’s block distribution on the field.">
+                Block distribution chart
+            </span>
+            """,
+            unsafe_allow_html=True
+        )
+
         plot_volleyball_block_frequency(frequenza_blocchi)
 
 
@@ -2907,7 +3095,15 @@ if st.session_state.fundamental_type == "block":
             'Mean points x set' : [block_p1, block_p2, block_p3, block_p4, block_p5],
             'Mean errors x set' : [block_e1, block_e2, block_e3, block_e4, block_e5],
         })
-
+        st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="Based on the initial choice between points or errors, this bar chart shows the mean number of points gained or the mean number of errors per set, specific to the fundamental previously selected, by the team.">
+                    Block-per-set bar chart
+                </span>
+                """,
+                unsafe_allow_html=True
+        )
         bar_plot_points(bar_block)
     
 
@@ -2916,6 +3112,15 @@ if st.session_state.fundamental_type == "block":
     elif st.session_state.info_type == "errors":
 
         if st.session_state.game_choice != 'all games':
+            st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="This chart is a summary of the game. It represents in chronological order all the points gained or lost by each player that took part in the match. The points gained in the selected fundamental are highlighted with green bars, the lost ones with red bars, while the grey bars represent the other events of the game related to other fundamentals.">
+                    Match history
+                </span>
+                """,
+                unsafe_allow_html=True
+            )
             match_history_block_error(inst_df)
 
 
@@ -2930,6 +3135,17 @@ if st.session_state.fundamental_type == "block":
         frequenza_blocchi = block['start_block'].value_counts(normalize=True).sort_index().reindex(range(1, 5), fill_value=0)
 
         # Esegui la funzione per visualizzare il grafico
+
+        st.markdown(
+            """
+            <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+            title="This chart is a discrete heatmap, showing the team’s block distribution on the field.">
+                Block distribution chart
+            </span>
+            """,
+            unsafe_allow_html=True
+        )
+
         plot_volleyball_block_frequency(frequenza_blocchi)
 
 
@@ -2997,7 +3213,15 @@ if st.session_state.fundamental_type == "block":
             'Mean points x set' : [block_p1, block_p2, block_p3, block_p4, block_p5],
             'Mean errors x set' : [block_e1, block_e2, block_e3, block_e4, block_e5],
         })
-
+        st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="Based on the initial choice between points or errors, this bar chart shows the mean number of points gained or the mean number of errors per set, specific to the fundamental previously selected, by the team.">
+                    Block-per-set bar chart
+                </span>
+                """,
+                unsafe_allow_html=True
+        )
         bar_plot_errors(bar_block)
 
 ###########################################################################################
@@ -3112,6 +3336,15 @@ if st.session_state.fundamental_type == "defense":
     if st.session_state.info_type == "errors":
 
         if st.session_state.game_choice != 'all games':
+            st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="This chart is a summary of the game. It represents in chronological order all the points gained or lost by each player that took part in the match. The points gained in the selected fundamental are highlighted with green bars, the lost ones with red bars, while the grey bars represent the other events of the game related to other fundamentals.">
+                    Match history
+                </span>
+                """,
+                unsafe_allow_html=True
+            )
             match_history_defense_error(inst_df)
 
         focus_defense = focus_defense[(focus_defense['score'] == 'L') & (focus_defense['point_type'] == 'opp point') & (focus_defense['attack_zone'].notna())]
@@ -3128,6 +3361,15 @@ if st.session_state.fundamental_type == "defense":
         frequenza_difese = defense['end_def'].value_counts(normalize=True).sort_index().reindex(range(1, 11), fill_value=0)
         frequenza_transizioni = pd.crosstab(defense['start_def'], defense['end_def'], normalize=True)
 
+        st.markdown(
+            """
+            <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+            title="This chart is a discrete heatmap, showing the team’s defense errors distribution on the field. The arrows represent the ball’s trajectory, and their size shows the frequency of the trajectory. Their number can be adjusted using the slider. ">
+                Defense errors distribution chart
+            </span>
+            """,
+            unsafe_allow_html=True
+        )
 
         min_frequenza_threshold = st.slider(
             "Minimum ball trajectory frequency:",
@@ -3182,7 +3424,15 @@ if st.session_state.fundamental_type == "defense":
             'Set': ['set 1', 'set 2', 'set 3', 'set 4', 'set 5'],
             'Mean errors x set' : [def_e1, def_e2, def_e3, def_e4, def_e5]
         })
-
+        st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="Based on the initial choice between points or errors, this bar chart shows the mean number of points gained or the mean number of errors per set, specific to the fundamental previously selected, by the team.">
+                    Defense-per-set bar chart
+                </span>
+                """,
+                unsafe_allow_html=True
+        )
         bar_plot_def_errors(bar_def)
 
 ###################################################################################################ààà
@@ -3296,6 +3546,15 @@ if st.session_state.fundamental_type == "receive":
     if st.session_state.info_type == "errors":
 
         if st.session_state.game_choice != 'all games':
+            st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="This chart is a summary of the game. It represents in chronological order all the points gained or lost by each player that took part in the match. The points gained in the selected fundamental are highlighted with green bars, the lost ones with red bars, while the grey bars represent the other events of the game related to other fundamentals.">
+                    Match history
+                </span>
+                """,
+                unsafe_allow_html=True
+            )
             match_history_receive_error(inst_df)
 
         focus_receive = focus_receive[(focus_receive['score'] == 'L') & (focus_receive['point_type'] == 'opp point') & (focus_receive['serve_zone'].notna())]
@@ -3313,6 +3572,15 @@ if st.session_state.fundamental_type == "receive":
         frequenza_ace = receive['end_rec'].value_counts(normalize=True).sort_index().reindex(range(1, 11), fill_value=0)
         frequenza_transizioni = pd.crosstab(receive['start_rec'], receive['end_rec'], normalize=True)
 
+        st.markdown(
+            """
+            <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+            title="This chart is a discrete heatmap, showing the team’s receive errors distribution on the field. The arrows represent the ball’s trajectory, and their size shows the frequency of the trajectory. Their number can be adjusted using the slider. ">
+                Receive errors distribution chart
+            </span>
+            """,
+            unsafe_allow_html=True
+        )
 
         min_frequenza_threshold = st.slider(
             "Minimum ball trajectory frequency:",
@@ -3367,7 +3635,15 @@ if st.session_state.fundamental_type == "receive":
             'Set': ['set 1', 'set 2', 'set 3', 'set 4', 'set 5'],
             'Mean errors x set' : [rec_e1, rec_e2, rec_e3, rec_e4, rec_e5]
         })
-
+        st.markdown(
+                """
+                <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
+                title="Based on the initial choice between points or errors, this bar chart shows the mean number of points gained or the mean number of errors per set, specific to the fundamental previously selected, by the team.">
+                    Receive-per-set bar chart
+                </span>
+                """,
+                unsafe_allow_html=True
+        )
         bar_plot_def_errors(bar_rec)
 
 ###########################################################################################

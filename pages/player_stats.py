@@ -639,24 +639,24 @@ def plot_volleyball_serve_frequency(attack_frequencies,defense_frequencies,trans
 def plot_volleyball_block_frequency(attack_frequencies, player_name="Giocatore"):
     
     
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(5, 2))
     ax.axis('off')
     ax.set_aspect('equal')
-    plt.title(f'{player_name} block distribution', fontsize=14)
+    plt.title(f'{player_name} block distribution', fontsize=8)
 
     # Dimensioni del campo (proporzionali)
     court_width = 9
     court_length = 18
 
     # Disegna il campo
-    rect = plt.Rectangle((0,0), court_width, court_length, edgecolor='black',linewidth=3, facecolor='lightgrey', alpha=1)
+    rect = plt.Rectangle((0,0), court_width, court_length, edgecolor='black',linewidth=1.5, facecolor='lightgrey', alpha=1)
     ax.add_patch(rect)
-    plt.plot([court_width/3,court_width/3], [0, court_length], 'k--', linewidth=1) #3m verticale
-    plt.plot([2*court_width /3, 2*court_width /3], [0, court_length], 'k--', linewidth=1) #6m verticale
-    plt.plot([0,court_width], [court_length/3,court_length/3], 'k-', linewidth=2) # Linea dei 3m nostra
-    plt.plot([0,court_width], [2*court_length/3,2*court_length/3], 'k-', linewidth=2)  # Linea dei 3m avversaria
-    plt.plot([0,court_width], [court_length/2-1,court_length/2-1], 'k--', linewidth=1) 
-    plt.plot([0,court_width], [court_length/2,court_length/2], 'k-', linewidth=3)
+    plt.plot([court_width/3,court_width/3], [0, court_length], 'k--', linewidth=0.5) #3m verticale
+    plt.plot([2*court_width /3, 2*court_width /3], [0, court_length], 'k--', linewidth=0.5) #6m verticale
+    plt.plot([0,court_width], [court_length/3,court_length/3], 'k-', linewidth=1) # Linea dei 3m nostra
+    plt.plot([0,court_width], [2*court_length/3,2*court_length/3], 'k-', linewidth=1)  # Linea dei 3m avversaria
+    plt.plot([0,court_width], [court_length/2-1,court_length/2-1], 'k--', linewidth=0.5) 
+    plt.plot([0,court_width], [court_length/2,court_length/2], 'k-', linewidth=1.5)
 
     # Coordinate delle zone di attacco 
     zone_coords_att = { 
@@ -683,11 +683,11 @@ def plot_volleyball_block_frequency(attack_frequencies, player_name="Giocatore")
             color = cmap1(1-freq / max_freq1) if max_freq1 > 0 else 'lightgray'
             circle = plt.Rectangle((x, y),height=1,width=3, facecolor=color, edgecolor=None, alpha=1)
             ax.add_patch(circle)
-            ax.text(x+1.5, y+0.5, f'{freq:.2f}', ha='center', va='center', color='black', fontsize=8)
+            ax.text(x+1.5, y+0.5, f'{freq:.2f}', ha='center', va='center', color='black', fontsize=3)
     
-    cbar1 = plt.colorbar(sm1, ax=ax, orientation='vertical', pad=-0.5, location='right')
-    cbar1.set_label('Block zone [%]')
-    cbar1.ax.tick_params(labelsize=8)
+    cbar1 = plt.colorbar(sm1, ax=ax, orientation='vertical', pad=-0.4, location='right')
+    cbar1.set_label('Block zone [%]',fontsize=6)
+    cbar1.ax.tick_params(labelsize=3)
 
     st.pyplot(fig) 
 def plot_volleyball_defense_frequency(attack_frequencies,defense_frequencies,transizioni_frequenze, player_name="Giocatore",soglia_freq=0.01):
