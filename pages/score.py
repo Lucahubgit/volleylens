@@ -3,6 +3,7 @@ import pandas as pd
 import io   # per scaricare il file excel
 from PIL import Image
 import pathlib
+from st_image_button import st_image_button
 
 def load_css(file_path):
     with open(file_path) as f:
@@ -178,11 +179,12 @@ with col11:
 col12, col13, col14 = st.columns(3, vertical_alignment='center')
 
 with col12:
-    if st.button(":house:", key="home"):
+    if st_image_button("","home.png","50px","outlined"):
         st.session_state.point_scored = 0
         st.session_state.point_lost = 0
         st.session_state.n_set = 1
         st.switch_page('pages/start.py')
+
 with col14:
     if st.button("Save Game Report", key="save", use_container_width=True):
             st.success(f"Thank for your trial. The application is still in development.")

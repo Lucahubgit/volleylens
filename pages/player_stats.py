@@ -10,6 +10,7 @@ from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 from PIL import Image
 import streamlit.components.v1 as components
 import altair as alt
+from st_image_button import st_image_button
 
 if "info_type" not in st.session_state:
     st.session_state.info_type = "errors"
@@ -1317,10 +1318,8 @@ excels = pd.DataFrame({})
 for file_names in excel_files:
     excels[file_names] = pd.read_excel(file_names, sheet_name=None)
 
-back_button = st.button(":house:")
-if back_button:
+if st_image_button("","home.png","50px","outlined"):    
     st.switch_page("pages/start.py")
-
 
 #PLAYER SELECTION
 st.session_state.player = st.selectbox("Select a player:",st.session_state.roster['Name'], placeholder="Select a player...")
@@ -1947,11 +1946,11 @@ if st.session_state.fundamental_type == "overall":
                 """
                 <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
                 title="The resulting shape of this radar chart gives a visual snapshot of strengths and weaknesses of the player over these five parameters. On the background is the representation of the ideal performance.
-                        - Att%: [player’s attack points]/(player's attack points+player's attack errors)*100
-                        - Serve%: [player's aces]/(player's aces+player's serve errors)*100
-                        - Block%: [player’s block points]/(player's block points+player's block errors)*100
-                        - Def error contribution: [player’s defense errors]/ [team’s defense errors]*100
-                        - Rec error contribution: [player’s receive errors]/ [team’s receive errors]*100">
+                        - Att%: (player’s attack points)/(player's attack points + player's attack errors)*100
+                        - Serve%: (player's aces)/(player's aces + player's serve errors)*100
+                        - Block%: (player’s block points)/(player's block points + player's block errors)*100
+                        - Def error contribution: (player’s defense errors)/(team’s defense errors)*100
+                        - Rec error contribution: (player’s receive errors)/(team’s receive errors)*100">
                     Overall performance radar plot
                 </span>
                 """,
@@ -1995,11 +1994,11 @@ if st.session_state.fundamental_type == "overall":
                 """
                 <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
                 title="The resulting shape of this radar chart gives a visual snapshot of strengths and weaknesses of the player over these five parameters. On the background is the representation of the ideal performance.
-                        - Att%: [player’s attack points]/(player's attack points+player's attack errors)*100
-                        - Serve%: [player's aces]/(player's aces+player's serve errors)*100
-                        - Block%: [player’s block points]/(player's block points+player's block errors)*100
-                        - Def error contribution: [player’s defense errors]/ [team’s defense errors]*100
-                        - Rec error contribution: [player’s receive errors]/ [team’s receive errors]*100">
+                        - Att%: (player’s attack points)/(player's attack points + player's attack errors)*100
+                        - Serve%: (player's aces)/(player's aces + player's serve errors)*100
+                        - Block%: (player’s block points)/(player's block points + player's block errors)*100
+                        - Def error contribution: (player’s defense errors)/(team’s defense errors)*100
+                        - Rec error contribution: (player’s receive errors)/(team’s receive errors)*100">
                     Overall performance radar plot
                 </span>
                 """,

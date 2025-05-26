@@ -10,6 +10,7 @@ from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 from PIL import Image
 import streamlit.components.v1 as components
 import altair as alt
+from st_image_button import st_image_button
 
 if "info_type" not in st.session_state:
     st.session_state.info_type = "errors"
@@ -1601,8 +1602,7 @@ excels = pd.DataFrame({})
 for file_names in excel_files:
     excels[file_names] = pd.read_excel(file_names, sheet_name=None)
 
-back_button = st.button(":house:")
-if back_button:
+if st_image_button("","home.png","50px","outlined"):     
     st.switch_page("pages/start.py")
 
 immagine,dati = st.columns([0.3,0.7], vertical_alignment='center',border=False)
@@ -1996,9 +1996,9 @@ if st.session_state.fundamental_type == "overall":
                 """
                 <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
                 title="The resulting shape of this radar chart gives a visual snapshot of strengths and weaknesses of the team over these three parameters. On the background is the representation of the ideal performance.
-	                    - Att%: [team’s attack points/team’s attack points + team’s attack errors*100]
-                        - Serve%: [team's aces/team’s aces + team's serve errors*100]
-                        - Block%: [team’s block points/team’s block points + team’s block errors*100]">
+	                    - Att%: (team’s attack points)/(team’s attack points + team’s attack errors)*100
+                        - Serve%: (team's aces)/(team’s aces + team's serve errors)*100
+                        - Block%: (team’s block points)/(team’s block points + team’s block errors)*100">
                     Overall performance radar plot
                 </span>
                 """,
@@ -2042,9 +2042,9 @@ if st.session_state.fundamental_type == "overall":
                 """
                 <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
                 title="The resulting shape of this radar chart gives a visual snapshot of strengths and weaknesses of the team over these three parameters. On the background is the representation of the ideal performance.
-	                    - Att%: [team’s attack points/team’s attack points + team’s attack errors*100]
-                        - Serve%: [team's aces/team’s aces + team's serve errors*100]
-                        - Block%: [team’s block points/team’s block points + team’s block errors*100]">
+	                    - Att%: (team’s attack points)/(team’s attack points + team’s attack errors)*100
+                        - Serve%: (team's aces)/(team’s aces + team's serve errors)*100
+                        - Block%: (team’s block points)/(team’s block points + team’s block errors)*100">
                     Overall performance radar plot
                 </span>
                 """,
@@ -2638,15 +2638,6 @@ if st.session_state.fundamental_type == "serve":
             unsafe_allow_html=True
         )
 
-        st.markdown(
-            """
-            <span style="border-bottom:1px dotted #888; cursor:help; font-size:1.5em; font-weight:bold;"
-            title="This chart is a discrete heatmap, showing the team’s serve distribution on the field. The arrows represent the ball’s trajectory, and their size shows the frequency of the trajectory. Their number can be adjusted using the slider. ">
-                Serve distribution chart
-            </span>
-            """,
-            unsafe_allow_html=True
-        )
 
         min_frequenza_threshold = st.slider(
             "Minimum ball trajectory frequency:",
